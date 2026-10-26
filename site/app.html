@@ -1,0 +1,754 @@
+<title>Colorado Abundance Ballot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Evidence-linked comparison of Hickenlooper, Chew and Baisley on abundance, energy, technology, openness and execution.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: a surveyor's sheet. Topographic hero framed by Colorado's lat/long box, then a scored matrix, then the evidence ledger. */
+:root {
+  --paper: #edf1ee;
+  --sheet: #f8faf8;
+  --ink: #15232a;
+  --muted: #56676c;
+  --rule: #c8d3cf;
+  --rule-soft: #dde5e1;
+  --accent: #1f4e5f;
+  --hick: #a8690f;
+  --chew: #0b7a70;
+  --bais: #6552c4;
+  --good: #2f7a3e;
+  --bad: #b23a2a;
+  --mixed: #8a6d12;
+  --chip: #e2e9e5;
+  --contour: rgba(31, 78, 95, 0.16);
+  --shadow: 0 1px 2px rgba(21, 35, 42, .06), 0 8px 24px rgba(21, 35, 42, .08);
+  --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-body: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f171b; --sheet: #152026; --ink: #e3ebe7; --muted: #95a6a6; --rule: #2c3c42; --rule-soft: #22313a;
+    --accent: #7cc0d3; --hick: #e2a54c; --chew: #3fc2b3; --bais: #a597f2; --good: #6cc27c; --bad: #ee7f6c; --mixed: #d9b850;
+    --chip: #1e2c33; --contour: rgba(124, 192, 211, 0.13); --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f171b; --sheet: #152026; --ink: #e3ebe7; --muted: #95a6a6; --rule: #2c3c42; --rule-soft: #22313a;
+  --accent: #7cc0d3; --hick: #e2a54c; --chew: #3fc2b3; --bais: #a597f2; --good: #6cc27c; --bad: #ee7f6c; --mixed: #d9b850;
+  --chip: #1e2c33; --contour: rgba(124, 192, 211, 0.13); --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--sheet); }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px;
+}
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--sheet) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+.bar .wrap { display: flex; align-items: center; gap: 20px; padding-block: 10px; }
+.brand { font-family: var(--f-display); font-weight: 800; font-size: 20px; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; }
+.nav { display: flex; gap: 4px; overflow-x: auto; margin-left: auto; scrollbar-width: none; }
+.nav a { font-size: 14px; font-weight: 500; text-decoration: none; color: var(--muted); padding: 6px 10px; border-radius: 6px; white-space: nowrap; }
+.nav a:hover { color: var(--ink); background: var(--chip); }
+
+/* Hero */
+.hero { position: relative; border-bottom: 1px solid var(--rule); background: var(--sheet); overflow: hidden; }
+.hero canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero .wrap { position: relative; padding-block: 56px 44px; display: grid; gap: 22px; }
+.hero h1 { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(44px, 8.4vw, 104px); line-height: .88; letter-spacing: .005em; max-width: 12ch; }
+.hero h1 span { color: var(--accent); }
+.hero .lede { max-width: 62ch; font-size: 18px; color: var(--ink); }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.meta div { display: grid; }
+.meta b { font-family: var(--f-mono); font-weight: 500; font-size: 15px; }
+.coords { position: absolute; font-family: var(--f-mono); font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+
+/* Sections */
+section.block { padding-block: 48px 8px; scroll-margin-top: 64px; }
+.block-head { display: grid; gap: 6px; margin-bottom: 22px; }
+.block-head h2 { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: clamp(30px, 4.4vw, 44px); line-height: 1; letter-spacing: .01em; }
+.block-head p { color: var(--muted); max-width: 70ch; }
+
+/* Candidate cards */
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.card { background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 20px; display: grid; gap: 14px; align-content: start; position: relative; box-shadow: var(--shadow); }
+.card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; border-radius: 10px 10px 0 0; background: var(--c); }
+.card h3 { font-family: var(--f-display); font-weight: 800; font-size: 30px; text-transform: uppercase; line-height: 1; letter-spacing: .01em; }
+.party { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 14px; color: var(--muted); }
+.pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--chip); color: var(--ink); white-space: nowrap; }
+.pill.ok::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--good); }
+.total { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.total .num { font-family: var(--f-display); font-weight: 900; font-size: 68px; line-height: .9; color: var(--c); font-variant-numeric: tabular-nums; }
+.total .of { font-family: var(--f-mono); font-size: 14px; color: var(--muted); }
+.cov { font-size: 13px; color: var(--muted); }
+.minis { display: grid; gap: 7px; }
+.mini { display: grid; grid-template-columns: 88px minmax(0, 1fr) 34px; gap: 10px; align-items: center; font-size: 13px; background: none; border: 0; padding: 2px 0; color: var(--ink); text-align: left; cursor: pointer; font-family: inherit; }
+.mini:hover .track { background: var(--rule); }
+.track { height: 8px; background: var(--rule-soft); border-radius: 4px; position: relative; overflow: hidden; }
+.track i { position: absolute; inset: 0 auto 0 0; background: var(--c); border-radius: 4px; transition: width .35s ease; }
+.track.unk { background: repeating-linear-gradient(135deg, var(--rule-soft) 0 5px, transparent 5px 10px); }
+.mini .v { font-family: var(--f-mono); font-size: 12px; text-align: right; color: var(--muted); }
+.btn { font: 600 14px var(--f-body); padding: 9px 14px; border-radius: 8px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); cursor: pointer; }
+.btn:hover { border-color: var(--ink); }
+.btn.primary { background: var(--ink); color: var(--sheet); border-color: var(--ink); }
+.note { font-size: 13px; color: var(--muted); }
+
+/* Controls */
+.controls { margin-top: 18px; background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px; }
+.sliders { display: grid; gap: 10px; }
+.slider { display: grid; grid-template-columns: 150px minmax(0, 1fr) 46px; gap: 12px; align-items: center; font-size: 14px; }
+.slider input { width: 100%; accent-color: var(--accent); }
+.slider output { font-family: var(--f-mono); font-size: 13px; text-align: right; }
+.toggles { display: grid; gap: 14px; align-content: start; }
+.toggle { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: start; font-size: 14px; cursor: pointer; }
+.toggle input { margin-top: 4px; accent-color: var(--accent); width: 16px; height: 16px; }
+.toggle small { display: block; color: var(--muted); font-size: 13px; }
+.robust { border-top: 1px dashed var(--rule); padding-top: 12px; display: grid; gap: 8px; }
+.robust-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) 46px; gap: 10px; align-items: center; font-size: 13px; }
+
+/* Matrix */
+.matrix-wrap { background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 14px 18px; border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--muted); align-items: center; }
+.legend .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; vertical-align: -1px; margin-right: 6px; background: var(--c); }
+.legend .hollow { background: transparent; border: 2px dashed var(--c); }
+.mrow { display: grid; grid-template-columns: 220px minmax(0, 1fr); border-bottom: 1px solid var(--rule-soft); cursor: pointer; background: none; width: 100%; border-left: 0; border-right: 0; border-top: 0; text-align: left; font-family: inherit; color: inherit; padding: 0; }
+.mrow:last-child { border-bottom: 0; }
+.mrow:hover { background: color-mix(in srgb, var(--chip) 60%, transparent); }
+.mrow[aria-expanded="true"] { background: var(--chip); }
+.mlabel { padding: 14px 18px; display: grid; gap: 2px; align-content: center; }
+.mlabel b { font-size: 15px; }
+.mlabel span { font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.mplot { padding: 6px 18px 6px 0; min-width: 0; }
+.mplot svg { display: block; width: 100%; height: 64px; overflow: visible; }
+.plot { position: relative; display: block; height: 64px; }
+.plot svg { position: absolute; inset: 0; }
+.pdot { position: absolute; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 2px var(--sheet); transition: left .35s ease; }
+.pdot.unk { background: transparent; border: 2px dashed var(--c); box-shadow: none; }
+.axis-row { display: grid; grid-template-columns: 220px minmax(0, 1fr); border-bottom: 1px solid var(--rule); }
+.axis-row svg { display: block; width: 100%; height: 40px; }
+.axis { position: relative; display: block; height: 40px; }
+.ax { position: absolute; top: 8px; transform: translateX(-50%); display: grid; justify-items: center; font-family: var(--f-mono); font-size: 11px; color: var(--muted); line-height: 1.2; }
+.ax small { font-size: 9px; }
+@media (max-width: 520px) { .ax small { display: none; } }
+.grid-line { stroke: var(--rule-soft); stroke-width: 1; }
+.grid-mid { stroke: var(--rule); stroke-dasharray: 3 4; }
+.detail { border-bottom: 1px solid var(--rule); background: var(--paper); padding: 18px; display: grid; gap: 14px; }
+.detail .q { color: var(--muted); font-size: 14px; max-width: 80ch; }
+.cols3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.cell { background: var(--sheet); border: 1px solid var(--rule); border-top: 3px solid var(--c); border-radius: 8px; padding: 14px; display: grid; gap: 10px; align-content: start; }
+.cell-head { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.cell-head b { font-size: 15px; }
+.score-badge { font-family: var(--f-display); font-weight: 900; font-size: 30px; line-height: 1; color: var(--c); }
+.score-word { font-size: 12px; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-family: var(--f-mono); font-size: 11px; padding: 2px 7px; border-radius: 4px; background: var(--chip); color: var(--muted); }
+.cell p { font-size: 14px; }
+.ev-links { display: flex; flex-wrap: wrap; gap: 6px; }
+.ev-link { font-family: var(--f-mono); font-size: 12px; padding: 3px 8px; border-radius: 4px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); cursor: pointer; }
+.ev-link:hover { border-color: var(--ink); }
+.dir-supports { color: var(--good); } .dir-contradicts { color: var(--bad); } .dir-mixed { color: var(--mixed); } .dir-neutral, .dir-unknown { color: var(--muted); }
+.ev-link::before { content: "●"; margin-right: 5px; font-size: 9px; vertical-align: 1px; }
+.ev-link.d-supports::before { color: var(--good); } .ev-link.d-contradicts::before { color: var(--bad); } .ev-link.d-mixed::before { color: var(--mixed); } .ev-link.d-neutral::before, .ev-link.d-unknown::before { color: var(--muted); }
+
+/* Partisanship */
+.part { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+.part .mrow { cursor: default; }
+
+/* Ledger */
+.filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin-bottom: 14px; }
+.filters label { display: grid; gap: 4px; font-size: 12px; color: var(--muted); font-family: var(--f-mono); text-transform: uppercase; letter-spacing: .05em; }
+.filters select, .filters input { font: 14px var(--f-body); padding: 8px 10px; border-radius: 8px; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); min-width: 0; }
+.filters input { width: 240px; max-width: 100%; }
+.count { margin-left: auto; font-family: var(--f-mono); font-size: 13px; color: var(--muted); align-self: center; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 10px; background: var(--sheet); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 640px; }
+th { text-align: left; font-family: var(--f-mono); font-weight: 500; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; border-bottom: 1px solid var(--rule); background: var(--sheet); position: sticky; top: 0; }
+td { padding: 10px 12px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; }
+tr.ev-row { cursor: pointer; }
+tr.ev-row:hover td { background: color-mix(in srgb, var(--chip) 60%, transparent); }
+.cdot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--c); margin-right: 6px; }
+td.id { font-family: var(--f-mono); font-size: 12px; white-space: nowrap; }
+.conf { font-family: var(--f-mono); font-size: 12px; }
+
+/* Method */
+.method { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.method .panel { background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; display: grid; gap: 10px; align-content: start; }
+.method h3 { font-size: 17px; }
+.method ul, .method ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; font-size: 14px; }
+.scale { display: grid; gap: 6px; font-size: 14px; }
+.scale div { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 10px; align-items: center; }
+.scale b { font-family: var(--f-display); font-size: 22px; text-align: center; }
+
+footer { padding-block: 40px 56px; color: var(--muted); font-size: 13px; }
+
+/* Drawer */
+.scrim { position: fixed; inset: 0; background: rgba(10, 18, 22, .45); z-index: 40; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(560px, 100%); background: var(--sheet); z-index: 50; box-shadow: -10px 0 40px rgba(0,0,0,.2); display: grid; grid-template-rows: auto minmax(0, 1fr); padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); padding-right: env(safe-area-inset-right, 0px); }
+.drawer-head { display: flex; justify-content: space-between; align-items: start; gap: 12px; padding: 18px 20px; border-bottom: 1px solid var(--rule); border-top: 4px solid var(--c, var(--accent)); }
+.drawer-head h3 { font-family: var(--f-display); font-weight: 800; font-size: 28px; text-transform: uppercase; line-height: 1; }
+.drawer-body { overflow-y: auto; padding: 18px 20px 32px; display: grid; gap: 16px; align-content: start; }
+.x { background: none; border: 1px solid var(--rule); border-radius: 8px; color: var(--ink); width: 36px; height: 36px; font-size: 20px; cursor: pointer; flex: none; }
+.kv { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 6px 12px; font-size: 14px; }
+.kv dt { color: var(--muted); font-family: var(--f-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; padding-top: 2px; }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+.ev-card { border: 1px solid var(--rule); border-radius: 8px; padding: 12px 14px; display: grid; gap: 6px; font-size: 14px; }
+.ev-card .top { display: flex; justify-content: space-between; gap: 8px; font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
+.ev-card b { font-size: 14px; }
+.ev-card button { justify-self: start; }
+.section-label { font-family: var(--f-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
+.prof-scores { display: grid; gap: 8px; }
+
+@media (max-width: 900px) {
+  .cards, .cols3 { grid-template-columns: minmax(0, 1fr); }
+  .controls { grid-template-columns: minmax(0, 1fr); }
+  .method { grid-template-columns: minmax(0, 1fr); }
+  .mrow, .axis-row { grid-template-columns: 130px minmax(0, 1fr); }
+  .mlabel { padding: 12px; }
+}
+@media (max-width: 700px) {
+  th:nth-child(5), td:nth-child(5), th:nth-child(8), td:nth-child(8) { display: none; }
+}
+@media (max-width: 520px) {
+  .slider { grid-template-columns: 110px minmax(0, 1fr) 40px; }
+  .mrow, .axis-row { grid-template-columns: 96px minmax(0, 1fr); }
+  .mlabel b { font-size: 13px; }
+  .brand { font-size: 17px; }
+  .kv { grid-template-columns: minmax(0, 1fr); }
+  .count { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">CO Senate · Abundance</div>
+    <nav class="nav" aria-label="Sections">
+      <a href="#overview">Overview</a>
+      <a href="#matrix">Compare</a>
+      <a href="#partisanship">Partisanship</a>
+      <a href="#ledger">Evidence</a>
+      <a href="#method">Method</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <canvas id="topo" aria-hidden="true"></canvas>
+  <span class="coords" style="top:10px;left:max(16px, env(safe-area-inset-left, 0px))">41°00′N · 109°02′W</span>
+  <span class="coords" style="bottom:10px;right:max(16px, env(safe-area-inset-right, 0px))">37°00′N · 102°02′W</span>
+  <div class="wrap">
+    <div class="eyebrow">U.S. Senate · Colorado · Class II seat</div>
+    <h1>Who builds <span>more?</span></h1>
+    <p class="lede">Three candidates scored on how strongly the evidence shows them backing more housing, energy, technology and competition, and on whether they can get it done. Every score links to the votes, bills and statements behind it. This page does not recommend a candidate.</p>
+    <div class="meta">
+      <div><span class="eyebrow">Election</span><b>Nov 3, 2026</b></div>
+      <div><span class="eyebrow">Research cutoff</span><b>Oct 26, 2026</b></div>
+      <div><span class="eyebrow">Evidence entries</span><b id="evCount">—</b></div>
+      <div><span class="eyebrow">Scale</span><b>0 opposed → 4 strongly supportive</b></div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="block" id="overview">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="eyebrow">Ballot verified · weighted score</span>
+        <h2>The candidates</h2>
+        <p>Weighted averages of five category scores. Adjust the weights and evidence rules below; every number on the page updates. Click a category bar for its evidence.</p>
+      </div>
+      <div class="cards" id="cards"></div>
+
+      <div class="controls" id="controls">
+        <div class="sliders" id="sliders">
+          <div class="eyebrow">Category weights (normalized to 100%)</div>
+        </div>
+        <div class="toggles">
+          <label class="toggle"><input type="checkbox" id="strict">
+            <span>Discount campaign statements<small>Halves the distance from neutral (2) for scores that rest only on stated intentions, not a record.</small></span></label>
+          <label class="toggle"><input type="checkbox" id="unkNeutral">
+            <span>Count Unknown as neutral<small>Off: Unknown categories are left out and the remaining weights rescaled. On: they count as 2.</small></span></label>
+          <div class="robust">
+            <span class="eyebrow">Robustness: highest score across 2,000 random weightings</span>
+            <div id="robust"></div>
+          </div>
+          <button class="btn" id="reset" type="button">Reset to default weights</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="matrix">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="eyebrow">Five dimensions · 0–4</span>
+        <h2>Side by side</h2>
+        <p>Each row places all three candidates on the same 0–4 scale. A dashed ring means Unknown. Open a row to read each rationale and the evidence behind it.</p>
+      </div>
+      <div class="matrix-wrap">
+        <div class="legend" id="legend"></div>
+        <div class="axis-row"><div></div><div class="mplot"><span id="axisTop"></span></div></div>
+        <div id="mrows"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="partisanship">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="eyebrow">Scored separately · not in the weighted total</span>
+        <h2>Partisanship &amp; independence</h2>
+        <p>4 means strong evidence of constructive cross-party work and independent positions; 0 means rigid party alignment. A missing voting record is not counted as partisanship, and compromise is not treated as good when it weakens the policy goal.</p>
+      </div>
+      <div class="matrix-wrap">
+        <div class="axis-row"><div></div><div class="mplot"><span id="axisPart"></span></div></div>
+        <div id="partRow"></div>
+        <div class="detail" id="partDetail"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="ledger">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="eyebrow">Audit trail</span>
+        <h2>Evidence ledger</h2>
+        <p>Every entry behind a score. Filter, search, and click a row for the full record and source link. The same data is in the repository as <span class="mono">data/evidence.json</span> and <span class="mono">data/evidence.csv</span>.</p>
+      </div>
+      <div class="filters">
+        <label>Candidate<select id="fCand"></select></label>
+        <label>Category<select id="fCat"></select></label>
+        <label>Direction<select id="fDir"></select></label>
+        <label>Evidence type<select id="fType"></select></label>
+        <label>Confidence<select id="fConf"></select></label>
+        <label>Search<input id="fText" type="search" placeholder="bill, issue, source…"></label>
+        <span class="count" id="fCount"></span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>Candidate</th><th>Cat.</th><th>Claim</th><th>Type</th><th>Direction</th><th>Conf.</th><th>Date</th></tr></thead>
+          <tbody id="ledgerBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="method">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="eyebrow">How to read this</span>
+        <h2>Method &amp; limits</h2>
+      </div>
+      <div class="method">
+        <div class="panel">
+          <h3>Scoring scale</h3>
+          <div class="scale" id="scale"></div>
+          <p class="note">Each score also shows its basis (a <em>record</em> of actions, <em>statements</em> only, or a <em>mix</em>) and a confidence level. A statement shows what a candidate intends. It does not show that the proposal would work.</p>
+        </div>
+        <div class="panel">
+          <h3>Rules applied</h3>
+          <ul>
+            <li>Positions are never inferred from party alone.</li>
+            <li>No prior federal office is not counted as poor performance. Chew's execution score reflects thin evidence, not a penalty.</li>
+            <li>Policies that add supply are separated from those that subsidize demand (e.g., a mortgage-rate subsidy counts against building abundance).</li>
+            <li>Energy is judged by likely effect on supply, not by which technologies a candidate likes.</li>
+            <li>Research support and deployment support are scored separately within technology.</li>
+            <li>Contrary evidence was sought for each candidate and is shown in red in the evidence lists.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Ballot verification</h3>
+          <ul id="ballotNotes"></ul>
+        </div>
+        <div class="panel">
+          <h3>Known limits</h3>
+          <ul>
+            <li>The research environment could not open web pages directly. Entries were built from search-indexed excerpts of each linked page, so read the source before relying on a single entry.</li>
+            <li>Not verified: Hickenlooper's ADVANCE Act vote and nuclear stance; Chew's past donation record; Baisley's uranium bill number and aggregator bill counts.</li>
+            <li>Chew has no voting record, so most of his evidence is campaign statements. The "discount statements" switch shows how much that matters.</li>
+            <li>Baisley's housing votes were on state bills that override local zoning. Opposing state preemption may come from a local-control principle; the score reflects the effect on supply.</li>
+            <li>The S. 5653 permitting vote is expected after the election and may change the energy and building picture for Hickenlooper.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Independent, nonpartisan analysis. Candidate colors are deliberately not party colors. Data current to October 26, 2026. Sources link to the original records; corrections welcome.</div>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" hidden>
+  <div class="drawer-head" id="drawerHead">
+    <div><div class="eyebrow" id="drawerEyebrow"></div><h3 id="drawerTitle"></h3></div>
+    <button class="x" id="drawerClose" type="button" aria-label="Close">×</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<script src="data.js"></script>
+<script>
+(() => {
+  const D = window.ABUNDANCE_DATA;
+  const $ = (s, el = document) => el.querySelector(s);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const CAND = Object.fromEntries(D.candidates.map((c) => [c.id, c]));
+  const COLOR = { hickenlooper: "var(--hick)", chew: "var(--chew)", baisley: "var(--bais)" };
+  const ORDER = ["hickenlooper", "chew", "baisley"];
+  const EV = Object.fromEntries(D.evidence.map((e) => [e.id, e]));
+  const CATNAME = Object.fromEntries(D.categories.map((c) => [c.id, c.name]));
+  CATNAME.P = "Partisanship";
+  const WORD = { 0: "Strongly opposed", 1: "Somewhat opposed", 2: "Mixed / neutral", 3: "Generally supportive", 4: "Strongly supportive" };
+  const DEFAULT_W = Object.fromEntries(D.categories.map((c) => [c.id, c.weight]));
+
+  const state = { w: { ...DEFAULT_W }, strict: false, unkNeutral: false };
+  try {
+    const saved = JSON.parse(localStorage.getItem("abundance-settings") || "null");
+    if (saved && saved.w) Object.assign(state, saved);
+  } catch (e) {}
+  const save = () => { try { localStorage.setItem("abundance-settings", JSON.stringify(state)); } catch (e) {} };
+
+  $("#evCount").textContent = D.evidence.length;
+
+  // ---------- scoring ----------
+  function eff(cell, strict = state.strict) {
+    if (cell.score == null) return null;
+    return strict && cell.basis === "statements" ? 2 + (cell.score - 2) * 0.5 : cell.score;
+  }
+  function total(cid, w = state.w, strict = state.strict, unkNeutral = state.unkNeutral) {
+    let sum = 0, wsum = 0, known = 0, all = 0;
+    for (const c of D.categories) {
+      const wi = w[c.id];
+      all += wi;
+      let v = eff(D.scores[cid][c.id], strict);
+      if (v == null) { if (!unkNeutral) continue; v = 2; } else known += wi;
+      sum += wi * v; wsum += wi;
+    }
+    return { value: wsum ? sum / wsum : null, coverage: all ? known / all : 0 };
+  }
+  function robustness() {
+    const wins = Object.fromEntries(ORDER.map((c) => [c, 0]));
+    let seed = 7;
+    const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+    const N = 2000;
+    for (let i = 0; i < N; i++) {
+      const w = {};
+      for (const c of D.categories) w[c.id] = -Math.log(rnd() || 1e-9);
+      let best = null, bv = -1;
+      for (const cid of ORDER) {
+        const t = total(cid, w).value;
+        if (t > bv + 1e-9) { bv = t; best = cid; }
+      }
+      wins[best]++;
+    }
+    return Object.fromEntries(ORDER.map((c) => [c, wins[c] / N]));
+  }
+
+  // ---------- cards ----------
+  function renderCards() {
+    $("#cards").innerHTML = ORDER.map((cid) => {
+      const c = CAND[cid], t = total(cid);
+      const minis = D.categories.map((cat) => {
+        const cell = D.scores[cid][cat.id], v = eff(cell);
+        return `<button class="mini" type="button" data-cand="${cid}" data-cat="${cat.id}" aria-label="${esc(c.name)}, ${esc(cat.name)}: ${v == null ? "Unknown" : v.toFixed(1)}">
+          <span>${esc(cat.short)}</span>
+          <span class="track${v == null ? " unk" : ""}"><i style="width:${v == null ? 0 : (v / 4) * 100}%"></i></span>
+          <span class="v">${v == null ? "?" : v.toFixed(1)}</span></button>`;
+      }).join("");
+      return `<article class="card" style="--c:${COLOR[cid]}">
+        <div class="party"><span>${esc(c.party)}</span><span class="pill ok">${esc(c.ballot.status)}</span></div>
+        <h3>${esc(c.name)}</h3>
+        <div class="total"><span class="num">${t.value == null ? "—" : t.value.toFixed(2)}</span><span class="of">/ 4.00 weighted</span></div>
+        <div class="cov">${Math.round(t.coverage * 100)}% of weight has evidence${t.coverage < 1 ? (state.unkNeutral ? " · Unknown counted as 2" : " · rescaled") : ""}</div>
+        <div class="minis">${minis}</div>
+        <button class="btn" type="button" data-profile="${cid}">Full profile &amp; evidence</button>
+      </article>`;
+    }).join("");
+  }
+
+  // ---------- controls ----------
+  function renderSliders() {
+    const box = $("#sliders");
+    box.querySelectorAll(".slider").forEach((n) => n.remove());
+    for (const cat of D.categories) {
+      const row = document.createElement("label");
+      row.className = "slider";
+      row.innerHTML = `<span>${esc(cat.name)}</span><input type="range" min="0" max="50" step="1" id="w-${cat.id}" value="${state.w[cat.id]}"><output id="o-${cat.id}"></output>`;
+      box.appendChild(row);
+      row.querySelector("input").addEventListener("input", (e) => { state.w[cat.id] = +e.target.value; update(); });
+    }
+    $("#strict").checked = state.strict;
+    $("#unkNeutral").checked = state.unkNeutral;
+  }
+  function renderOutputs() {
+    const sum = Object.values(state.w).reduce((a, b) => a + b, 0) || 1;
+    for (const cat of D.categories) $("#o-" + cat.id).textContent = Math.round((state.w[cat.id] / sum) * 100) + "%";
+  }
+  function renderRobust() {
+    const r = robustness();
+    $("#robust").innerHTML = ORDER.map((cid) => `<div class="robust-row" style="--c:${COLOR[cid]}">
+      <span>${esc(CAND[cid].name.split(" ").pop())}</span>
+      <span class="track"><i style="width:${r[cid] * 100}%"></i></span>
+      <span class="mono" style="text-align:right">${Math.round(r[cid] * 100)}%</span></div>`).join("");
+  }
+  $("#strict").addEventListener("change", (e) => { state.strict = e.target.checked; update(); });
+  $("#unkNeutral").addEventListener("change", (e) => { state.unkNeutral = e.target.checked; update(); });
+  $("#reset").addEventListener("click", () => { state.w = { ...DEFAULT_W }; state.strict = false; state.unkNeutral = false; renderSliders(); update(); });
+
+  // ---------- dot plots ----------
+  const X0 = 20, X1 = 530, XU = 580;
+  const sx = (v) => X0 + (v / 4) * (X1 - X0);
+  function axisSvg(el) {
+    // HTML labels so text keeps its proportions when the row is narrow
+    const lab = ["opposed", "", "neutral", "", "strong"];
+    let h = "";
+    for (let i = 0; i <= 4; i++) h += `<span class="ax" style="left:${sx(i) / 6}%">${i}<small>${lab[i]}</small></span>`;
+    h += `<span class="ax" style="left:${XU / 6}%">?<small>unknown</small></span>`;
+    el.outerHTML = `<span class="axis" id="${el.id}" aria-hidden="true">${h}</span>`;
+  }
+  function plotSvg(values) {
+    // grid in a stretched SVG; dots as HTML so they stay round at any width. Overlapping dots spread vertically.
+    let s = "";
+    for (let i = 0; i <= 4; i++) s += `<line class="${i === 2 ? "grid-mid" : "grid-line"}" x1="${sx(i)}" x2="${sx(i)}" y1="4" y2="60" vector-effect="non-scaling-stroke"/>`;
+    s += `<line class="grid-line" x1="${XU}" x2="${XU}" y1="4" y2="60" vector-effect="non-scaling-stroke"/>`;
+    const groups = {};
+    values.forEach((d) => { const k = d.v == null ? "u" : d.v.toFixed(2); (groups[k] = groups[k] || []).push(d); });
+    let dots = "";
+    for (const k in groups) {
+      const g = groups[k];
+      g.forEach((d, i) => {
+        const y = 32 + (i - (g.length - 1) / 2) * 17;
+        const x = ((d.v == null ? XU : sx(d.v)) / 600) * 100;
+        const label = `${CAND[d.cid].name}: ${d.v == null ? "Unknown" : d.v.toFixed(1)}`;
+        dots += `<span class="pdot${d.v == null ? " unk" : ""}" style="--c:${COLOR[d.cid]};left:${x}%;top:${y}px" title="${esc(label)}"></span>`;
+      });
+    }
+    const alt = values.map((d) => `${CAND[d.cid].name} ${d.v == null ? "unknown" : d.v.toFixed(1)}`).join(", ");
+    return `<span class="plot" role="img" aria-label="${esc(alt)}"><svg viewBox="0 0 600 64" preserveAspectRatio="none" aria-hidden="true">${s}</svg>${dots}</span>`;
+  }
+
+  // ---------- matrix ----------
+  let openRow = null;
+  function evLinks(ids) {
+    return `<div class="ev-links">${ids.map((id) => `<button type="button" class="ev-link d-${EV[id].direction}" data-ev="${id}" title="${esc(EV[id].claim)}">${id}</button>`).join("")}</div>`;
+  }
+  function cellHtml(cid, cell, label) {
+    const v = eff(cell);
+    return `<div class="cell" style="--c:${COLOR[cid]}">
+      <div class="cell-head"><b>${esc(label)}</b><span class="score-badge">${v == null ? "?" : v % 1 ? v.toFixed(1) : v}</span></div>
+      <div class="tags"><span class="tag">${v == null ? "Unknown" : WORD[Math.round(cell.score)]}</span>${cell.basis ? `<span class="tag">basis: ${esc(cell.basis)}</span>` : ""}<span class="tag">confidence: ${esc(cell.confidence)}</span></div>
+      <p>${esc(cell.rationale)}</p>
+      ${evLinks(cell.evidence)}
+    </div>`;
+  }
+  function renderMatrix() {
+    $("#legend").innerHTML = ORDER.map((cid) => `<span style="--c:${COLOR[cid]}"><span class="dot"></span>${esc(CAND[cid].name)}</span>`).join("") +
+      `<span style="--c:var(--muted)"><span class="dot hollow"></span>Unknown</span>`;
+    axisSvg($("#axisTop"));
+    $("#mrows").innerHTML = D.categories.map((cat) => {
+      const vals = ORDER.map((cid) => ({ cid, v: eff(D.scores[cid][cat.id]) }));
+      const open = openRow === cat.id;
+      const det = open ? `<div class="detail" id="det-${cat.id}"><p class="q">${esc(cat.question)}</p><div class="cols3">${ORDER.map((cid) => cellHtml(cid, D.scores[cid][cat.id], CAND[cid].name)).join("")}</div></div>` : "";
+      return `<button class="mrow" type="button" data-row="${cat.id}" aria-expanded="${open}">
+          <span class="mlabel"><b>${esc(cat.name)}</b><span>${Math.round((state.w[cat.id] / (Object.values(state.w).reduce((a, b) => a + b, 0) || 1)) * 100)}% weight</span></span>
+          <span class="mplot">${plotSvg(vals)}</span>
+        </button>${det}`;
+    }).join("");
+  }
+
+  // ---------- partisanship ----------
+  function renderPart() {
+    axisSvg($("#axisPart"));
+    const vals = ORDER.map((cid) => ({ cid, v: D.partisanship[cid].score }));
+    $("#partRow").innerHTML = `<div class="mrow" style="cursor:default"><span class="mlabel"><b>Independence</b><span>separate score</span></span><span class="mplot">${plotSvg(vals)}</span></div>`;
+    $("#partDetail").innerHTML = `<div class="cols3">${ORDER.map((cid) => cellHtml(cid, { ...D.partisanship[cid], basis: null }, CAND[cid].name)).join("")}</div>`;
+  }
+
+  // ---------- ledger ----------
+  const F = { cand: "", cat: "", dir: "", type: "", conf: "", text: "" };
+  function opts(sel, list, label) {
+    sel.innerHTML = `<option value="">All</option>` + list.map(([v, t]) => `<option value="${esc(v)}">${esc(t)}</option>`).join("");
+    sel.setAttribute("aria-label", label);
+  }
+  function setupFilters() {
+    opts($("#fCand"), ORDER.map((c) => [c, CAND[c].name]), "Candidate");
+    opts($("#fCat"), [...D.categories.map((c) => [c.id, c.name]), ["P", "Partisanship"]], "Category");
+    opts($("#fDir"), ["supports", "contradicts", "mixed", "neutral", "unknown"].map((d) => [d, d]), "Direction");
+    opts($("#fType"), [...new Set(D.evidence.map((e) => e.type))].sort().map((t) => [t, t]), "Evidence type");
+    opts($("#fConf"), ["High", "Medium", "Low"].map((c) => [c, c]), "Confidence");
+    const bind = (id, key) => $(id).addEventListener("input", (e) => { F[key] = e.target.value; renderLedger(); });
+    bind("#fCand", "cand"); bind("#fCat", "cat"); bind("#fDir", "dir"); bind("#fType", "type"); bind("#fConf", "conf"); bind("#fText", "text");
+  }
+  function renderLedger() {
+    const q = F.text.trim().toLowerCase();
+    const rows = D.evidence.filter((e) =>
+      (!F.cand || e.candidate === F.cand) && (!F.cat || e.category === F.cat) && (!F.dir || e.direction === F.dir) &&
+      (!F.type || e.type === F.type) && (!F.conf || e.confidence === F.conf) &&
+      (!q || [e.claim, e.summary, e.issue, e.legislation, e.source, e.interpretation].join(" ").toLowerCase().includes(q)));
+    $("#fCount").textContent = `${rows.length} of ${D.evidence.length}`;
+    $("#ledgerBody").innerHTML = rows.map((e) => `<tr class="ev-row" data-ev="${e.id}" tabindex="0">
+      <td class="id">${e.id}</td>
+      <td style="white-space:nowrap"><span class="cdot" style="--c:${COLOR[e.candidate]}"></span>${esc(CAND[e.candidate].name.split(" ").pop())}</td>
+      <td>${esc(CATNAME[e.category])}</td>
+      <td>${esc(e.claim)}</td>
+      <td>${esc(e.type)}</td>
+      <td class="dir-${e.direction}">${esc(e.direction)}</td>
+      <td class="conf">${esc(e.confidence)}</td>
+      <td class="mono" style="font-size:12px;white-space:nowrap">${esc(e.date)}</td></tr>`).join("") ||
+      `<tr><td colspan="8" class="note">No entries match these filters. Clear a filter to see more.</td></tr>`;
+  }
+
+  // ---------- drawer ----------
+  let lastFocus = null;
+  function openDrawer(eyebrow, title, color, html) {
+    lastFocus = document.activeElement;
+    $("#drawerEyebrow").textContent = eyebrow;
+    $("#drawerTitle").textContent = title;
+    $("#drawerHead").style.setProperty("--c", color);
+    $("#drawerBody").innerHTML = html;
+    $("#drawerBody").scrollTop = 0;
+    $("#scrim").hidden = false; $("#drawer").hidden = false;
+    $("#drawerClose").focus();
+  }
+  function closeDrawer() {
+    $("#scrim").hidden = true; $("#drawer").hidden = true;
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  $("#drawerClose").addEventListener("click", closeDrawer);
+  $("#scrim").addEventListener("click", closeDrawer);
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("#drawer").hidden) closeDrawer(); });
+
+  function evCard(e) {
+    return `<div class="ev-card"><div class="top"><span>${e.id} · ${esc(CATNAME[e.category])}</span><span class="dir-${e.direction}">${esc(e.direction)}</span></div>
+      <b>${esc(e.claim)}</b><span class="note">${esc(e.type)} · ${esc(e.confidence)} confidence · ${esc(e.date)}</span>
+      <button class="ev-link d-${e.direction}" type="button" data-ev="${e.id}">Open record</button></div>`;
+  }
+  function showEvidence(id) {
+    const e = EV[id];
+    openDrawer(`Evidence ${e.id} · ${CAND[e.candidate].name}`, e.issue, COLOR[e.candidate], `
+      <p style="font-size:17px;font-weight:600">${esc(e.claim)}</p>
+      <p>${esc(e.summary)}</p>
+      <dl class="kv">
+        <dt>Category</dt><dd>${esc(CATNAME[e.category])}</dd>
+        <dt>Evidence type</dt><dd>${esc(e.type)}</dd>
+        <dt>Direction</dt><dd class="dir-${e.direction}">${esc(e.direction)} ${e.category === "P" ? "(constructive independence)" : "(abundance objective)"}</dd>
+        <dt>Confidence</dt><dd>${esc(e.confidence)}</dd>
+        <dt>Federal relevance</dt><dd>${esc(e.federal)}</dd>
+        <dt>Legislation</dt><dd>${esc(e.legislation || "—")}</dd>
+        <dt>Source</dt><dd>${esc(e.source)}</dd>
+        <dt>Published</dt><dd>${esc(e.date)}</dd>
+        <dt>Link</dt><dd><a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">${esc(e.url)}</a></dd>
+      </dl>
+      <div class="section-label">Analyst interpretation</div>
+      <p>${esc(e.interpretation)}</p>`);
+  }
+  function showCell(cid, catId) {
+    const cell = D.scores[cid][catId], cat = D.categories.find((c) => c.id === catId);
+    openDrawer(`${CAND[cid].name} · ${cat.name}`, eff(cell) == null ? "Unknown" : `${eff(cell) % 1 ? eff(cell).toFixed(1) : eff(cell)} — ${WORD[cell.score]}`, COLOR[cid], `
+      <p class="note">${esc(cat.question)}</p>
+      <div class="tags"><span class="tag">basis: ${esc(cell.basis)}</span><span class="tag">confidence: ${esc(cell.confidence)}</span>${state.strict && cell.basis === "statements" ? `<span class="tag">discounted from ${cell.score}</span>` : ""}</div>
+      <p>${esc(cell.rationale)}</p>
+      <div class="section-label">Evidence (${cell.evidence.length})</div>
+      ${cell.evidence.map((id) => evCard(EV[id])).join("")}`);
+  }
+  function showProfile(cid) {
+    const c = CAND[cid], t = total(cid);
+    const mine = D.evidence.filter((e) => e.candidate === cid);
+    const pro = mine.filter((e) => e.direction === "supports" && e.category !== "P" && e.confidence !== "Low");
+    const con = mine.filter((e) => (e.direction === "contradicts" || e.direction === "mixed") && e.category !== "P");
+    const unk = mine.filter((e) => e.direction === "unknown" || e.confidence === "Low");
+    openDrawer(c.party, c.name, COLOR[cid], `
+      <p>${esc(c.summary)}</p>
+      <dl class="kv">
+        <dt>Background</dt><dd>${esc(c.role)}</dd>
+        <dt>Ballot</dt><dd>${esc(c.ballot.status)}. ${esc(c.ballot.detail)} ${c.ballot.sources.map((u, i) => `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">[${i + 1}]</a>`).join(" ")}</dd>
+        <dt>Weighted</dt><dd class="mono">${t.value == null ? "—" : t.value.toFixed(2)} / 4 · ${Math.round(t.coverage * 100)}% coverage</dd>
+        <dt>Partisanship</dt><dd class="mono">${D.partisanship[cid].score} / 4 (separate)</dd>
+      </dl>
+      <div class="section-label">Category scores</div>
+      <div class="prof-scores">${D.categories.map((cat) => { const v = eff(D.scores[cid][cat.id]); return `<button class="mini" type="button" style="--c:${COLOR[cid]}" data-cand="${cid}" data-cat="${cat.id}"><span>${esc(cat.short)}</span><span class="track${v == null ? " unk" : ""}"><i style="width:${v == null ? 0 : v / 4 * 100}%"></i></span><span class="v">${v == null ? "?" : v.toFixed(1)}</span></button>`; }).join("")}</div>
+      <div class="section-label">Strongest supporting evidence</div>${pro.map(evCard).join("") || `<p class="note">None at medium or high confidence.</p>`}
+      <div class="section-label">Contrary or mixed evidence</div>${con.map(evCard).join("") || `<p class="note">None found.</p>`}
+      <div class="section-label">Unknown or low-confidence</div>${unk.map(evCard).join("") || `<p class="note">None.</p>`}`);
+  }
+
+  document.addEventListener("click", (e) => {
+    const ev = e.target.closest("[data-ev]");
+    if (ev) { showEvidence(ev.dataset.ev); return; }
+    const mini = e.target.closest("[data-cand][data-cat]");
+    if (mini) { showCell(mini.dataset.cand, mini.dataset.cat); return; }
+    const prof = e.target.closest("[data-profile]");
+    if (prof) { showProfile(prof.dataset.profile); return; }
+    const row = e.target.closest("[data-row]");
+    if (row) { openRow = openRow === row.dataset.row ? null : row.dataset.row; renderMatrix(); }
+  });
+  $("#ledgerBody").addEventListener("keydown", (e) => {
+    const tr = e.target.closest("tr[data-ev]");
+    if (tr && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); showEvidence(tr.dataset.ev); }
+  });
+
+  // ---------- method ----------
+  $("#scale").innerHTML = [4, 3, 2, 1, 0].map((n) => `<div><b>${n}</b><span>${esc(D.meta.scale[n])}</span></div>`).join("") +
+    `<div><b>?</b><span>${esc(D.meta.scale.null)}</span></div>`;
+  $("#ballotNotes").innerHTML = D.ballot_notes.map((n) => `<li>${esc(n)}</li>`).join("");
+
+  // ---------- topo hero ----------
+  function topo() {
+    const cv = $("#topo"), host = cv.parentElement;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const W = host.clientWidth, H = host.clientHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    const ctx = cv.getContext("2d");
+    ctx.scale(dpr, dpr);
+    const color = getComputedStyle(document.documentElement).getPropertyValue("--contour").trim();
+    // smooth height field: a few Gaussian "peaks" (the Front Range runs north-south, left of center)
+    const peaks = [[.62, .3, .18, 1], [.7, .72, .14, .8], [.48, .55, .1, .55], [.85, .45, .2, .7], [.3, .2, .22, .35], [.22, .8, .16, .4]];
+    const f = (x, y) => peaks.reduce((s, [px, py, r, h]) => s + h * Math.exp(-(((x - px) ** 2) + ((y - py) * .7) ** 2) / (r * r)), 0) + .15 * Math.sin(x * 9 + y * 4) * Math.cos(y * 7);
+    const step = 8, cols = Math.ceil(W / step) + 1, rows = Math.ceil(H / step) + 1;
+    const g = new Float32Array(cols * rows);
+    for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) g[j * cols + i] = f(i * step / W, j * step / H);
+    ctx.strokeStyle = color; ctx.lineWidth = 1;
+    for (let lvl = 0.05; lvl < 1.4; lvl += 0.075) {
+      ctx.beginPath();
+      for (let j = 0; j < rows - 1; j++) for (let i = 0; i < cols - 1; i++) {
+        const a = g[j * cols + i], b = g[j * cols + i + 1], c = g[(j + 1) * cols + i + 1], d = g[(j + 1) * cols + i];
+        const x = i * step, y = j * step, pts = [];
+        const edge = (v1, v2, x1, y1, x2, y2) => { if ((v1 < lvl) !== (v2 < lvl)) { const t = (lvl - v1) / (v2 - v1); pts.push([x1 + t * (x2 - x1), y1 + t * (y2 - y1)]); } };
+        edge(a, b, x, y, x + step, y); edge(b, c, x + step, y, x + step, y + step); edge(d, c, x, y + step, x + step, y + step); edge(a, d, x, y, x, y + step);
+        if (pts.length >= 2) { ctx.moveTo(pts[0][0], pts[0][1]); ctx.lineTo(pts[1][0], pts[1][1]); }
+        if (pts.length === 4) { ctx.moveTo(pts[2][0], pts[2][1]); ctx.lineTo(pts[3][0], pts[3][1]); }
+      }
+      ctx.stroke();
+    }
+  }
+  let rt;
+  window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(topo, 150); });
+  try { matchMedia("(prefers-color-scheme: dark)").addEventListener("change", topo); } catch (e) {}
+  new MutationObserver(topo).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+  // ---------- boot ----------
+  function update() { renderOutputs(); renderCards(); renderMatrix(); renderRobust(); save(); }
+  renderSliders(); setupFilters(); renderLedger(); renderPart(); update(); topo();
+  const h = location.hash.slice(1);
+  if (h && document.getElementById(h)) document.getElementById(h).scrollIntoView();
+})();
+</script>
