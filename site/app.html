@@ -212,6 +212,8 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 13px; }
 .ev-card .top { display: flex; justify-content: space-between; gap: 8px; font-family: var(--f-mono); font-size: 12px; color: var(--muted); }
 .ev-card b { font-size: 14px; }
 .ev-card button { justify-self: start; }
+.trade .section-label { border-bottom: 0; padding-bottom: 0; }
+.trade p { font-size: 14px; }
 .section-label { font-family: var(--f-mono); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 6px; }
 .prof-scores { display: grid; gap: 8px; }
 
@@ -243,6 +245,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 13px; }
       <a href="#overview">Overview</a>
       <a href="#matrix">Compare</a>
       <a href="#partisanship">Partisanship</a>
+      <a href="#tradeoffs">Tradeoffs</a>
       <a href="#ledger">Evidence</a>
       <a href="#method">Method</a>
     </nav>
@@ -325,6 +328,17 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 13px; }
     </div>
   </section>
 
+  <section class="block" id="tradeoffs">
+    <div class="wrap">
+      <div class="block-head">
+        <span class="eyebrow">Read before deciding</span>
+        <h2>Tradeoffs &amp; open questions</h2>
+        <p>For each candidate: the strongest evidence for and against on the abundance agenda, the biggest unknown, and what new evidence would change the scores. Weigh these against what matters most to you.</p>
+      </div>
+      <div class="cols3" id="tradeCards"></div>
+    </div>
+  </section>
+
   <section class="block" id="ledger">
     <div class="wrap">
       <div class="block-head">
@@ -379,13 +393,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 13px; }
         </div>
         <div class="panel">
           <h3>Known limits</h3>
-          <ul>
-            <li>The research environment could not open web pages directly. Entries were built from search-indexed excerpts of each linked page, so read the source before relying on a single entry.</li>
-            <li>Not verified: Hickenlooper's ADVANCE Act vote and nuclear stance; Chew's past donation record; Baisley's uranium bill number and aggregator bill counts.</li>
-            <li>Chew has no voting record, so most of his evidence is campaign statements. The "discount statements" switch shows how much that matters.</li>
-            <li>Baisley's housing votes were on state bills that override local zoning. Opposing state preemption may come from a local-control principle; the score reflects the effect on supply.</li>
-            <li>The S. 5653 permitting vote is expected after the election and may change the energy and building picture for Hickenlooper.</li>
-          </ul>
+          <ul id="limits"></ul>
         </div>
       </div>
     </div>
@@ -583,6 +591,15 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 13px; }
     $("#partDetail").innerHTML = `<div class="cols3">${ORDER.map((cid) => cellHtml(cid, { ...D.partisanship[cid], basis: null }, CAND[cid].name)).join("")}</div>`;
   }
 
+  // ---------- tradeoffs ----------
+  const TRADE = [["for", "Strongest case for"], ["against", "Strongest case against"], ["open", "Biggest open question"], ["move", "What would change the scores"]];
+  function renderTrade() {
+    $("#tradeCards").innerHTML = ORDER.map((cid) => `<div class="cell trade" style="--c:${COLOR[cid]}">
+      <div class="cell-head"><b>${esc(CAND[cid].name)}</b><span class="tag">${esc(CAND[cid].party)}</span></div>
+      ${TRADE.map(([k, label]) => { const t = D.tradeoffs[cid][k]; return `<div class="section-label">${label}</div><p>${esc(t.text)}</p>${t.evidence.length ? evLinks(t.evidence) : ""}`; }).join("")}
+    </div>`).join("");
+  }
+
   // ---------- ledger ----------
   const F = { cand: "", cat: "", dir: "", type: "", conf: "", text: "" };
   function opts(sel, list, label) {
@@ -710,6 +727,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 13px; }
   $("#scale").innerHTML = [4, 3, 2, 1, 0].map((n) => `<div><b>${n}</b><span>${esc(D.meta.scale[n])}</span></div>`).join("") +
     `<div><b>?</b><span>${esc(D.meta.scale.null)}</span></div>`;
   $("#ballotNotes").innerHTML = D.ballot_notes.map((n) => `<li>${esc(n)}</li>`).join("");
+  $("#limits").innerHTML = D.limits.map((n) => `<li>${esc(n)}</li>`).join("");
 
   // ---------- topo hero ----------
   function topo() {
@@ -747,7 +765,7 @@ footer { padding-block: 40px 56px; color: var(--muted); font-size: 13px; }
 
   // ---------- boot ----------
   function update() { renderOutputs(); renderCards(); renderMatrix(); renderRobust(); save(); }
-  renderSliders(); setupFilters(); renderLedger(); renderPart(); update(); topo();
+  renderSliders(); setupFilters(); renderLedger(); renderPart(); renderTrade(); update(); topo();
   const h = location.hash.slice(1);
   if (h && document.getElementById(h)) document.getElementById(h).scrollIntoView();
 })();

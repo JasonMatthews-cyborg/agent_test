@@ -24,17 +24,17 @@ Other minor-party and unaffiliated candidates are on the ballot but out of scope
 | Economic openness (15%) | 3 | 3 | 2 |
 | Pragmatism & execution (15%) | 4 | 2 | 2 |
 | **Weighted** | **3.15** | **2.81** (80% coverage) | **2.45** |
-| Partisanship (separate) | 3 | 3 (low confidence) | 2 |
+| Partisanship (separate) | 3 | 3 (medium confidence) | 2 |
 
-How much these numbers can be trusted varies a lot. Hickenlooper's scores rest on votes and bills. Chew's rest mostly on campaign statements. Baisley's rest on a state record. The site's "discount campaign statements" switch shows how much that matters. Every rationale, and the evidence for and against each score, is in the site and in `data/evidence.json`.
+How much these numbers can be trusted varies a lot. Hickenlooper's scores rest on votes and bills. Chew's rest mostly on campaign statements. Baisley's rest on a state record. The site's "discount campaign statements" switch shows how much that matters. Every rationale, and the evidence for and against each score, is in the site and in `data/evidence.json`. The site's "Tradeoffs & open questions" section gives, for each candidate, the strongest evidence for and against, the biggest unknown, and what would change the scores.
 
 ## Files
 
 - `site/index.html`: the interactive site (open it directly in a browser, or serve the `site/` folder)
 - `site/app.html`: page body used to build `index.html`
-- `data/evidence.json`: the canonical dataset (candidates, scores with rationales, 67 evidence entries)
+- `data/evidence.json`: the canonical dataset (candidates, scores with rationales, tradeoffs, limits, 75 evidence entries)
 - `data/evidence.csv`: the evidence ledger as a spreadsheet
-- `scripts/build.mjs`: checks the dataset (every referenced evidence ID exists, weights sum to 100, every source is an https link) and regenerates `site/data.js`, `site/index.html` and the CSV
+- `scripts/build.mjs`: checks the dataset (every evidence ID referenced by a score, partisanship rating or tradeoff exists, weights sum to 100, every source is an https link) and regenerates `site/data.js`, `site/index.html` and the CSV
 
 ```sh
 node scripts/build.mjs
@@ -42,6 +42,7 @@ node scripts/build.mjs
 
 ## Limits
 
-- The research environment could not open web pages directly. Entries were built from search-indexed excerpts of each linked page, so check the source before relying on any single entry.
-- Not verified: Hickenlooper's ADVANCE Act vote and nuclear position; Chew's past donation record; the bill number for Baisley's uranium-mining effort; aggregator counts of Baisley's enacted bills.
-- The Senate vote on the 2026 permitting package (S. 5653) is expected after the election and could change the picture.
+- Some official pages (Senate.gov roll-call pages, senators' press-release sites) block automated retrieval. Entries drawn from them rely on the Senate floor log or press corroboration, as each entry notes.
+- Resolved in the October 26 update: Hickenlooper voted yes on the ADVANCE Act (Senate floor log, Vote No. 200, 88–2); Chew's donation history was checked against FEC records (more to Republicans before 2025, more to Democrats and independents since joining Forward); Baisley's 2026 enactment record comes from the legislature (5 of 12 prime-sponsored bills signed), replacing an aggregator count; Baisley's role on HB25-1040 (nuclear as clean energy, now law) was added.
+- Still not verified: the bill number for Baisley's uranium-mining effort, and whether Hickenlooper co-sponsored any nuclear fission bill.
+- S. 5653, the 2026 Senate permitting package, was introduced Sept. 30, 2026 and sits in committee. A vote after the election could change the picture.

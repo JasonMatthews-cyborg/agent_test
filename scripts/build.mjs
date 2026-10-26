@@ -12,6 +12,8 @@ const check = (where, list) =>
 for (const [cand, cats] of Object.entries(data.scores))
   for (const [cat, s] of Object.entries(cats)) check(`scores.${cand}.${cat}`, s.evidence);
 for (const [cand, p] of Object.entries(data.partisanship)) check(`partisanship.${cand}`, p.evidence);
+for (const [cand, t] of Object.entries(data.tradeoffs))
+  for (const [k, v] of Object.entries(t)) check(`tradeoffs.${cand}.${k}`, v.evidence);
 for (const e of data.evidence) if (!/^https:\/\//.test(e.url)) problems.push(`${e.id} has no https url`);
 const weights = data.categories.reduce((a, c) => a + c.weight, 0);
 if (weights !== 100) problems.push(`weights sum to ${weights}`);

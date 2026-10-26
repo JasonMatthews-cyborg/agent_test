@@ -11,7 +11,7 @@
       "4": "Strongly supportive",
       "null": "Unknown: no articulated position or no usable evidence"
     },
-    "method_note": "Research was done through web search results that index the cited pages. Direct page retrieval was blocked in the research environment, so several entries rest on search excerpts of the linked page. Every entry links to the underlying page so a reader can check it. Entries marked Low confidence or 'unverified' should be checked before relying on them."
+    "method_note": "Research used web search, direct page retrieval, and official data APIs (FEC). Every entry links to the underlying page so a reader can check it. Some pages (Senate.gov roll-call pages, some senator websites) blocked automated retrieval; those entries rely on corroborating official or press sources and say so. Entries marked Low confidence or 'unverified' should be checked before relying on them."
   },
   "categories": [
     {
@@ -115,8 +115,8 @@
       "B": {
         "score": 3,
         "basis": "record",
-        "confidence": "Medium",
-        "rationale": "He sponsored BIG WIRES (interregional transmission), says much of the 2026 permitting deal's transmission title came from his bill, and co-led the Geo POWER Act for next-generation geothermal, which passed committee. As governor he brokered rules and deals that kept oil and gas drilling going under methane limits. Counter-evidence: he voted against advancing the Ratepayer Protection Act, arguing it was too weak to make data centers pay for grid costs. His nuclear position is undocumented in the sources found.",
+        "confidence": "High",
+        "rationale": "He sponsored BIG WIRES (interregional transmission), says much of the 2026 permitting deal's transmission title came from his bill, and co-led the Geo POWER Act for next-generation geothermal, which passed committee. He voted for the ADVANCE Act to speed advanced-reactor licensing, and says natural gas will be needed to meet AI-driven demand during the transition. As governor he brokered rules and deals that kept oil and gas drilling going under methane limits. Counter-evidence: he voted against advancing the Ratepayer Protection Act, arguing it was too weak to make data centers pay for grid costs, and he wants data-center siting left to localities. He has not led on nuclear.",
         "evidence": [
           "H04",
           "H05",
@@ -124,7 +124,8 @@
           "H07",
           "H08",
           "H09",
-          "H10"
+          "H10",
+          "H23"
         ]
       },
       "C": {
@@ -144,11 +145,12 @@
         "score": 3,
         "basis": "record",
         "confidence": "High",
-        "rationale": "He voted to end tariff emergencies on Canada and Brazil, which favors trade openness. He voted against the 2025 reconciliation law (H.R. 1), which made full expensing of equipment and domestic R&D permanent; that is counter-evidence on investment incentives, though the bill also did many other things. No current skilled-immigration bill of his was found.",
+        "rationale": "He voted to end tariff emergencies on Canada and Brazil, which favors trade openness. He voted against the 2025 reconciliation law (H.R. 1), which made full expensing of equipment and domestic R&D permanent; that is counter-evidence on investment incentives, though the bill also did many other things. He backs guest-worker visas and a DACA pathway, but no current skilled-immigration bill of his was found.",
         "evidence": [
           "H16",
           "H17",
-          "H18"
+          "H18",
+          "H24"
         ]
       },
       "E": {
@@ -170,22 +172,24 @@
         "score": 3,
         "basis": "statements",
         "confidence": "Low",
-        "rationale": "His campaign calls Colorado's housing shortage a supply-and-demand problem and names government regulation that delays building as a cause. He also blames tariffs for higher construction costs. That is supply-side thinking, but it is general: no specific permitting, zoning or NEPA proposal was found, and he has no record to test it against.",
+        "rationale": "His campaign calls Colorado's housing shortage a supply-and-demand problem and says 'overbearing environmental regulations and permit processes' delay building. His plan names supply-side levers: lower tariffs on materials, more immigrant construction labor, and repealing costly regulations. That is supply-side thinking, but it is general: no specific permitting, zoning or NEPA proposal was found, and he has no record to test it against.",
         "evidence": [
           "C04",
-          "C05"
+          "C05",
+          "C21"
         ]
       },
       "B": {
         "score": 3,
         "basis": "statements",
         "confidence": "Low",
-        "rationale": "He says data-center demand cannot be met by wind and solar alone, calls for an all-of-the-above strategy, and argues for a 'more measured' renewable transition, citing gas as roughly half the CO2 of coal. A Navy nuclear background is relevant context but not proof of policy. No specific bills or mechanisms (transmission, permitting, nuclear licensing) were found.",
+        "rationale": "He says data-center demand cannot be met by wind and solar alone and calls for an all-of-the-above strategy with 'a heavy reliance on nuclear power' and investment in small modular reactors. He argues for a 'more measured' renewable transition, citing gas as roughly half the CO2 of coal. A Navy nuclear background is relevant context but not proof of policy. No specific mechanisms (transmission, permitting, NRC licensing) were found.",
         "evidence": [
           "C02",
           "C06",
           "C07",
-          "C08"
+          "C08",
+          "C20"
         ]
       },
       "C": {
@@ -215,12 +219,13 @@
         "score": 2,
         "basis": "mixed",
         "confidence": "Low",
-        "rationale": "He has a verifiable private-sector record: he co-founded CAI in 1996 and grew it to about 750 employees and $135M before stepping down as CEO in 2022. He has no legislative record, which this analysis does not count against him. His policy proposals are general, and he has not explained how an unaffiliated senator would move them. The 2 reflects thin and mixed evidence, not a finding of poor performance.",
+        "rationale": "He has a verifiable private-sector record: he co-founded CAI in 1996 and grew it to about 750 employees and $135M before stepping down as CEO in 2022. He has no legislative record, which this analysis does not count against him. He has a stated theory of leverage, a bloc of independent senators acting as a 'fulcrum', but it depends on other independents winning. His policy proposals are mostly general. The 2 reflects thin and mixed evidence, not a finding of poor performance.",
         "evidence": [
           "C01",
           "C14",
           "C15",
-          "C19"
+          "C19",
+          "C23"
         ]
       }
     },
@@ -240,15 +245,17 @@
       },
       "B": {
         "score": 3,
-        "basis": "mixed",
-        "confidence": "Medium",
-        "rationale": "He sponsored SB25-139 to count nuclear as clean energy (killed in committee), tried to restore uranium mining in western Colorado, backs natural gas for AI-driven demand, and supports research on hydrogen and nuclear. Counter-evidence: he supports the 2025 reconciliation law, which phases out wind and solar credits, and broad tariffs that raise equipment costs. No transmission position was found.",
+        "basis": "record",
+        "confidence": "High",
+        "rationale": "He helped carry HB25-1040, now law, which counts nuclear as a clean-energy resource in Colorado, after sponsoring SB25-139 to the same end. He tried to restore uranium mining in western Colorado, backs natural gas for AI-driven demand, wants data centers treated like any other large power customer, and supports research on hydrogen and nuclear. Counter-evidence: he supports the 2025 reconciliation law, which phases out wind and solar credits, and broad tariffs that raise equipment costs. No transmission position was found.",
         "evidence": [
           "B06",
           "B07",
           "B08",
           "B09",
-          "B10"
+          "B10",
+          "B27",
+          "B28"
         ]
       },
       "C": {
@@ -281,7 +288,7 @@
         "score": 2,
         "basis": "record",
         "confidence": "Medium",
-        "rationale": "Eight years as a minority-party legislator with several bipartisan laws, including the 2021 rulemaking-search law (98 of 100 legislators) and 2025 bills co-sponsored with Democrats. An aggregator counts 4 of 125 sponsored bills enacted (unverified). Counter-evidence: he spoke at a 2022 election-conspiracy rally and was pressed on it in the 2026 debate. That raises questions about judgment and credibility with colleagues.",
+        "rationale": "Eight years as a minority-party legislator with several bipartisan laws, including the 2021 rulemaking-search law (98 of 100 legislators) and 2025 bills co-sponsored with Democrats. In 2026 five of his 12 prime-sponsored bills became law, all technical. Counter-evidence: none of his enacted bills touch the core abundance issues, and he spoke at a 2022 election-conspiracy rally and was pressed on it in the 2026 debate. That raises questions about judgment and credibility with colleagues.",
         "evidence": [
           "B19",
           "B20",
@@ -309,15 +316,17 @@
     },
     "chew": {
       "score": 3,
-      "confidence": "Low",
-      "rationale": "No voting record, which this analysis does not count as partisanship. His stated positions mix both parties: he opposes tariffs and the Iran war's handling, and backs debt reduction and regulatory relief. He pledged not to support reconciliation bills, which pass on party-line votes. He backs open primaries and ranked-choice voting. Hickenlooper's campaign says Chew gave heavily to Republican senators before leaving the party. Chew says he gave to moderates in both parties. The donation record was not independently checked.",
+      "confidence": "Medium",
+      "rationale": "No voting record, which this analysis does not count as partisanship. His stated positions mix both parties: he opposes tariffs and the Iran war's handling, and backs debt reduction and regulatory relief. He pledged not to support reconciliation bills, which pass on party-line votes, and plans to work with a bloc of independents. He backs open primaries and ranked-choice voting. FEC records show he has given to both parties and to independents: more to Republicans before 2025, more to Democrats and independents since joining Forward, including to GOP Sens. Collins and Cassidy in 2026.",
       "evidence": [
         "C03",
         "C14",
         "C16",
         "C17",
         "C18",
-        "C19"
+        "C19",
+        "C22",
+        "C23"
       ]
     },
     "baisley": {
@@ -479,16 +488,16 @@
       "candidate": "hickenlooper",
       "category": "B",
       "issue": "Nuclear",
-      "claim": "Position on nuclear and advanced reactors: unknown",
-      "summary": "The ADVANCE Act passed the Senate 88–2 on June 18, 2024; only Markey and Sanders voted no and ten senators did not vote. No source found states Hickenlooper's individual vote or a statement from him on advanced reactors.",
-      "url": "https://ans.org/news/article-6131/senate-passes-nuclear-advance-act-bill-heads-to-biden",
-      "source": "American Nuclear Society",
+      "claim": "Voted for the ADVANCE Act (advanced-reactor licensing reform)",
+      "summary": "The Senate concurred in the House amendments to S. 870, which carried the ADVANCE Act, 88–2 on June 18, 2024 (Vote No. 200). The Senate floor log lists the only nays (Markey, Sanders) and all ten non-voters (Braun, Cramer, Durbin, Fetterman, Hoeven, Marshall, Menendez, Sinema, Sullivan, Tuberville). Hickenlooper is in neither list, so he voted yes. No bill he sponsored or co-sponsored on fission was found.",
+      "url": "https://www.dailypress.senate.gov/tuesday-june-18-2024/",
+      "source": "U.S. Senate Periodical Press Gallery floor log (corroborated by ANS)",
       "date": "2024-06-18",
       "legislation": "ADVANCE Act (S. 870)",
-      "type": "Analyst inference",
-      "direction": "unknown",
-      "interpretation": "He was not one of the two no votes, but he may have been among the ten who did not vote. Unverified; check Senate roll call.",
-      "confidence": "Low",
+      "type": "Demonstrated action",
+      "direction": "supports",
+      "interpretation": "A yes vote on the main recent law to speed NRC licensing of advanced reactors. One of 88 votes, so it shows alignment rather than leadership on nuclear.",
+      "confidence": "High",
       "federal": "High"
     },
     {
@@ -803,7 +812,7 @@
       "category": "B",
       "issue": "Data-center demand / generation mix",
       "claim": "Says data-center demand cannot be met by wind and solar alone; backs an all-of-the-above strategy",
-      "summary": "His issues page says large digital demand cannot possibly be met by wind and solar alone and calls for an all-of-the-above strategy with heavy reliance on other sources. The excerpt found did not name those sources.",
+      "summary": "His issues page says demand from data centers, cloud servers and AI queries 'cannot possibly be met by wind and solar alone' and calls for an all-of-the-above strategy. See C20 for the nuclear part of the same page.",
       "url": "https://bobchew2026.com/issues/",
       "source": "Bob Chew campaign website",
       "date": "n.d. (accessed 2026-10-26)",
@@ -980,7 +989,7 @@
       "legislation": "",
       "type": "Unverified claim",
       "direction": "unknown",
-      "interpretation": "Unverified. Giving to Collins, a moderate, fits either story.",
+      "interpretation": "Checked against FEC records in C22: both statements are partly true.",
       "confidence": "Low",
       "federal": "Low"
     },
@@ -1143,7 +1152,7 @@
       "category": "B",
       "issue": "Uranium mining",
       "claim": "Pursued legislation to restore uranium mining in western Colorado (unsuccessful)",
-      "summary": "Highlighted in the Colorado Sun candidate guide. Bill number not identified.",
+      "summary": "Highlighted in the Colorado Sun candidate guide, which says he pushed unsuccessfully for state legislation to let uranium mining return to western Colorado as part of a broader nuclear push. A search of legislature records did not identify the bill number.",
       "url": "https://coloradosun.com/2026/10/05/colorado-senate-race-candidate-guide/",
       "source": "The Colorado Sun",
       "date": "2026-10-05",
@@ -1363,16 +1372,16 @@
       "candidate": "baisley",
       "category": "E",
       "issue": "Legislative productivity",
-      "claim": "About 125 bills sponsored, 4 enacted (aggregator count)",
-      "summary": "Third-party tracker figure, not checked against official records. Also lists a nuclear workforce bill as passed (unverified).",
-      "url": "https://www.oneclickpolitics.com/legislators/5361",
-      "source": "OneClickPolitics (aggregator)",
-      "date": "n.d.",
-      "legislation": "",
-      "type": "Unverified claim",
-      "direction": "neutral",
-      "interpretation": "A low enactment rate is common for minority-party members. Treat as unverified.",
-      "confidence": "Low",
+      "claim": "2026 session: prime sponsor of 12 bills, 5 signed into law",
+      "summary": "The legislature's member page for the 2026 regular session lists 12 bills with Baisley as prime sponsor. Five were signed: SB26-186 (electronic filing for workers' compensation), SB26-185 (state IT security), HB26-1238 (EMS as essential services), HB26-1205 (State Forest Service Good Neighbor Authority) and HB26-1023 (party liability for accessibility). Five were postponed indefinitely and two were pending. None concerned energy or housing. An earlier aggregator count of 4 enacted bills over his career could not be reconciled with this and is not used.",
+      "url": "https://leg.colorado.gov/legislators/mark-baisley",
+      "source": "Colorado General Assembly",
+      "date": "2026-06",
+      "legislation": "SB26-186, SB26-185, HB26-1238, HB26-1205, HB26-1023",
+      "type": "Demonstrated action",
+      "direction": "supports",
+      "interpretation": "A 5-of-12 rate in a Democratic-controlled legislature shows he can pass technical, low-salience bills. None are on the abundance agenda's core issues.",
+      "confidence": "High",
       "federal": "Low"
     },
     {
@@ -1476,11 +1485,249 @@
       "interpretation": "Self-assessment.",
       "confidence": "Medium",
       "federal": "Low"
+    },
+    {
+      "id": "H23",
+      "candidate": "hickenlooper",
+      "category": "B",
+      "issue": "Generation mix / data centers",
+      "claim": "Expects natural gas to be needed to meet AI-driven demand; names geothermal and fusion as promising; opposes federal preemption of local data-center decisions",
+      "summary": "In the Colorado Sun candidate guide he backs a transition to clean energy by 2050, says natural gas will be needed in the meantime to meet growing demand from AI, and names geothermal and fusion as promising. On data centers he said he is not in favor of the federal government taking siting decisions away from localities.",
+      "url": "https://coloradosun.com/2026/10/05/colorado-senate-race-candidate-guide/",
+      "source": "The Colorado Sun",
+      "date": "2026-10-05",
+      "legislation": "",
+      "type": "Specific policy commitment",
+      "direction": "mixed",
+      "interpretation": "Pragmatic on gas as a bridge, which supports near-term supply. Keeping data-center siting local preserves a veto point that can slow large loads and the generation built for them.",
+      "confidence": "Medium",
+      "federal": "High"
+    },
+    {
+      "id": "H24",
+      "candidate": "hickenlooper",
+      "category": "D",
+      "issue": "Immigration / labor supply",
+      "claim": "Supports guest-worker visas for working taxpayers and a citizenship pathway for DACA recipients",
+      "summary": "In the Colorado Sun guide he says legal pathways are being 'dismantled and in many cases ignored' and backs guest-worker visas and a DACA pathway. No current skilled-immigration (H-1B, STEM green card) bill of his was found.",
+      "url": "https://coloradosun.com/2026/10/05/colorado-senate-race-candidate-guide/",
+      "source": "The Colorado Sun",
+      "date": "2026-10-05",
+      "legislation": "",
+      "type": "Specific policy commitment",
+      "direction": "supports",
+      "interpretation": "Favors a larger legal labor supply. Not specific to high-skill talent, which matters most for the technology category.",
+      "confidence": "Medium",
+      "federal": "High"
+    },
+    {
+      "id": "C20",
+      "candidate": "chew",
+      "category": "B",
+      "issue": "Nuclear",
+      "claim": "Backs an all-of-the-above strategy with 'a heavy reliance on nuclear power' and investment in small modular reactors",
+      "summary": "His campaign issues page calls for reliable, abundant energy with heavy reliance on nuclear and investment in small modular reactors. It gives no position on NRC licensing, fuel supply, transmission or natural gas permitting.",
+      "url": "https://bobchew2026.com/issues/",
+      "source": "Bob Chew campaign website",
+      "date": "n.d. (accessed 2026-10-26)",
+      "legislation": "",
+      "type": "Specific policy commitment",
+      "direction": "supports",
+      "interpretation": "Supply-focused and specific on technology, but no mechanism (licensing, financing, siting) is given. Consistent with his Navy nuclear background, which is context, not proof.",
+      "confidence": "Medium",
+      "federal": "High"
+    },
+    {
+      "id": "C21",
+      "candidate": "chew",
+      "category": "A",
+      "issue": "Housing supply",
+      "claim": "Housing plan: 'tame our national deficits, reduce tariffs, welcome immigration labor, and repeal costly regulations'",
+      "summary": "His issues page says 'overbearing environmental regulations and permit processes' delay construction, and names tariffs, inflation and immigration enforcement as raising building costs. It names no specific regulation, permitting reform or zoning change. In a June 2026 IVN interview he argued a credible debt plan would lower mortgage rates without targeted housing legislation.",
+      "url": "https://bobchew2026.com/issues/",
+      "source": "Bob Chew campaign website (with IVN interview, 2026-06-17)",
+      "date": "n.d. (accessed 2026-10-26)",
+      "legislation": "",
+      "type": "General political rhetoric",
+      "direction": "supports",
+      "interpretation": "Mostly supply-side levers (labor, materials costs, regulation). The debt-to-mortgage-rate channel is indirect and works on demand-side cost of credit; no concrete supply mechanism.",
+      "confidence": "Medium",
+      "federal": "Medium"
+    },
+    {
+      "id": "C22",
+      "candidate": "chew",
+      "category": "P",
+      "issue": "Past donations",
+      "claim": "FEC records: gave to Republicans, Democrats and independents; more to Republicans overall, more to Democrats and independents since joining Forward",
+      "summary": "Itemized FEC receipts for 'Chew, Robert' of Boulder, CO (employer CAI / R Chew LLC), Oct 2020–Oct 2026, excluding his own campaign and ActBlue/WinRed conduit lines: about $92K to Republican committees (e.g., Todd Young, Lawler, Hogan, Bacon, Murkowski, Collins, NRSC), $59K to Democrats (e.g., Manchin, Golden, Gottheimer), $36K to independent candidates, and $57K to PACs including No Labels, the Forward Party and United Independents. Since his first Forward Party gift (Sept. 2025): about $22K to Democrats, $32K to independents, $13K to Republicans, including $5.5K to Sen. Collins and $940 to Sen. Cassidy.",
+      "url": "https://www.fec.gov/data/receipts/individual-contributions/?contributor_name=chew%2C+robert&contributor_state=CO",
+      "source": "Federal Election Commission",
+      "date": "2026-10-26 (data through 2026-10-07)",
+      "legislation": "",
+      "type": "Demonstrated action",
+      "direction": "neutral",
+      "interpretation": "Confirms the Hickenlooper campaign's claim of heavy GOP giving before 2025 and Chew's claim of giving to moderates in both parties. The pattern favors centrist and independent candidates over either party's base. Name match is consistent across 154 records but was not confirmed with the campaign.",
+      "confidence": "High",
+      "federal": "Medium"
+    },
+    {
+      "id": "C23",
+      "candidate": "chew",
+      "category": "E",
+      "issue": "Senate strategy",
+      "claim": "Plans to work with a bloc of independent senators as a 'fulcrum'; wants budgets through regular order, reconciliation narrowed, and a 60-vote threshold restored for confirmations",
+      "summary": "In a June 2026 IVN interview he described a planned group of independent Senate candidates who would deny either party an automatic majority and publish joint non-negotiables. He said passing budgets is 'job number one for the legislative branch'.",
+      "url": "https://ivn.us/bob-chew-wants-to-make-colorados-senate-race-about-the-problems-both-parties-duck/",
+      "source": "IVN",
+      "date": "2026-06-17",
+      "legislation": "",
+      "type": "Specific policy commitment",
+      "direction": "neutral",
+      "interpretation": "A concrete theory of how an unaffiliated senator would get leverage. Whether it works depends on how many independents win and on the Senate margin, which is outside his control.",
+      "confidence": "Medium",
+      "federal": "High"
+    },
+    {
+      "id": "B27",
+      "candidate": "baisley",
+      "category": "B",
+      "issue": "Nuclear",
+      "claim": "Senate sponsor of HB25-1040, which made nuclear a 'clean energy resource' under Colorado law; signed March 31, 2025",
+      "summary": "The legislature's bill page lists Sens. Liston and Roberts as Senate prime sponsors and Baisley as an additional sponsor. The bill counts nuclear toward utilities' 2050 clean-energy target and makes it eligible for local clean-energy financing. It became law (Session Law Ch. 45, effective Aug. 6, 2025). It followed his own SB25-139 and the 2023 SB23-079, which did not pass.",
+      "url": "https://leg.colorado.gov/bills/hb25-1040",
+      "source": "Colorado General Assembly",
+      "date": "2025-03-31",
+      "legislation": "HB25-1040",
+      "type": "Demonstrated action",
+      "direction": "supports",
+      "interpretation": "Removes a legal barrier to nuclear in Colorado's clean-energy rules. A bipartisan bill he helped carry, not one he led.",
+      "confidence": "High",
+      "federal": "Medium"
+    },
+    {
+      "id": "B28",
+      "candidate": "baisley",
+      "category": "B",
+      "issue": "Data centers",
+      "claim": "Data-center siting is a local decision; data centers should pay for their electricity but not be treated differently from other large users; wants to 'get back on the nuclear track'",
+      "summary": "In the Colorado Sun guide he said water concerns about data centers are overblown because of closed-loop cooling (the Sun notes not all use it), and that data centers should pay for power like other large customers.",
+      "url": "https://coloradosun.com/2026/10/05/colorado-senate-race-candidate-guide/",
+      "source": "The Colorado Sun",
+      "date": "2026-10-05",
+      "legislation": "",
+      "type": "Specific policy commitment",
+      "direction": "supports",
+      "interpretation": "Treats large new loads as ordinary customers, which eases their build-out. Like Hickenlooper, he leaves siting to localities.",
+      "confidence": "Medium",
+      "federal": "High"
     }
   ],
   "ballot_notes": [
     "All three named candidates are confirmed general-election nominees for the Nov. 3, 2026 race by multiple independent sources.",
     "Other candidates are reported on the ballot (e.g., Christopher Baum, Approval Voting Party, and minor-party or unaffiliated candidates). They are out of scope here. Sources disagree on the full list, so check the Colorado Secretary of State's official candidate list.",
     "Chew's ballot label: Forward Party per CPR and the Colorado Forward Party; Colorado Newsline lists him as Independent."
+  ],
+  "tradeoffs": {
+    "hickenlooper": {
+      "for": {
+        "text": "The longest record of enacted, bipartisan supply-side work: a seat in the group that wrote the 2021 infrastructure law, a vote for the ROAD to Housing Act, and his own transmission (BIG WIRES) and geothermal (Geo POWER) bills.",
+        "evidence": [
+          "H03",
+          "H01",
+          "H04",
+          "H06"
+        ]
+      },
+      "against": {
+        "text": "He favors AI developer liability and third-party evaluators, which add compliance cost to deployment. He voted against H.R. 1's permanent expensing and against advancing the Ratepayer Protection Act, and wants data-center siting left to localities.",
+        "evidence": [
+          "H13",
+          "H18",
+          "H07",
+          "H23"
+        ]
+      },
+      "open": {
+        "text": "Whether he will back the S. 5653 permitting package. It is not his bill, though he says its transmission title came from his work, and no vote is expected before the election.",
+        "evidence": [
+          "H05"
+        ]
+      },
+      "move": {
+        "text": "A yes vote and floor work for S. 5653 or broader environmental-review reform would push Building toward 4. Writing strict AI liability into law would push Technology toward 2.",
+        "evidence": []
+      }
+    },
+    "chew": {
+      "for": {
+        "text": "His stated positions point toward supply across the board: heavy reliance on nuclear and small modular reactors, opposition to tariffs, regulation named as a cause of housing costs, and more immigrant construction labor. He ran an engineering firm for 26 years.",
+        "evidence": [
+          "C20",
+          "C10",
+          "C21",
+          "C01"
+        ]
+      },
+      "against": {
+        "text": "He offers almost no specific mechanisms, has no stated technology policy, and says his own party takes no policy positions. As a third-party senator, his influence would depend on other independents winning.",
+        "evidence": [
+          "C09",
+          "C19",
+          "C23"
+        ]
+      },
+      "open": {
+        "text": "Technology is Unknown, and every scored category rests on statements rather than a record. Turn on 'Discount campaign statements' to see how much his totals depend on taking statements at face value.",
+        "evidence": [
+          "C09"
+        ]
+      },
+      "move": {
+        "text": "Bill-level proposals on permitting, NRC licensing or AI would raise confidence in his scores, and could raise or lower them.",
+        "evidence": []
+      }
+    },
+    "baisley": {
+      "for": {
+        "text": "A concrete pro-nuclear record (HB25-1040, now law; SB25-139; a uranium-mining push), a 40-year aerospace and IT career, and a consistent light-touch approach to AI: he voted for Colorado's AI Act, then led the bill delaying it.",
+        "evidence": [
+          "B27",
+          "B06",
+          "B07",
+          "B24",
+          "B11",
+          "B12",
+          "B14"
+        ]
+      },
+      "against": {
+        "text": "He voted against Colorado's two main 2024 bills to loosen zoning limits on housing. He supports broad tariffs and wants tariff revenue to replace the income tax. His main housing idea, a lender tax break to lower mortgage rates, subsidizes demand.",
+        "evidence": [
+          "B01",
+          "B02",
+          "B17",
+          "B05"
+        ]
+      },
+      "open": {
+        "text": "How his local-control stance on zoning and data-center siting would carry over to federal supply questions. No position was found on transmission or the federal permitting package.",
+        "evidence": [
+          "B28"
+        ]
+      },
+      "move": {
+        "text": "Support for federal permitting reform or transmission siting would raise Building and Energy. Dropping support for broad tariffs would raise Openness.",
+        "evidence": []
+      }
+    }
+  },
+  "limits": [
+    "Some official pages (Senate.gov roll-call pages, senators' press-release sites) block automated retrieval. Entries drawn from them rely on the Senate floor log or press corroboration, as each entry notes.",
+    "Still not verified: the bill number for Baisley's uranium-mining effort, and whether Hickenlooper co-sponsored any nuclear fission bill (no Congress.gov sponsorship search was available).",
+    "Chew has no voting record, so most of his evidence is campaign statements. The 'discount statements' switch shows how much that matters.",
+    "Baisley's housing votes were on state bills that override local zoning. Opposing state preemption may come from a local-control principle; the score reflects the effect on supply.",
+    "S. 5653, the 2026 Senate permitting package, was introduced Sept. 30, 2026 and sits in committee. A vote after the election could change the Building and Energy picture for all three.",
+    "Chew's FEC donation totals rest on a name, city and employer match across 154 records. They were not confirmed with the campaign."
   ]
 }
